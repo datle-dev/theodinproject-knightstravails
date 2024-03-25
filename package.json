@@ -1,0 +1,13 @@
+{
+  "name": "theodinproject-knightstravails",
+  "version": "1.0.0",
+  "description": "The Odin Project Knights Travails",
+  "main": "queue.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}
