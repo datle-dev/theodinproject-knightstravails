@@ -17,7 +17,7 @@ const Queue = () => {
         enqueue,
         dequeue,
         print,
-    }
+    };
 };
 
 export default Queue;
