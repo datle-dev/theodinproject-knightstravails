@@ -93,7 +93,7 @@ const Board = (function() {
 
     const idFromCoords = (arr) => {
         return String(arr[0]) + String(arr[1]);
-    }
+    };
 
     initAdjacency();
     initNodes();
