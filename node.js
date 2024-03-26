@@ -21,10 +21,16 @@ export default function Node (id) {
 
     const markQueued = () => {
         queued = true;
-    }
+    };
 
     const isQueued = () => {
         return queued;
+    };
+
+    const reset = () => {
+        parent = null;
+        visited = false;
+        queued = false;
     }
 
     return {
@@ -35,5 +41,6 @@ export default function Node (id) {
         isVisited,
         markQueued,
         isQueued,
-    }
+        reset,
+    };
 };
