@@ -55,62 +55,39 @@ const Board = (function() {
     };
 
     const knightMoves = (start, end) => {
-        console.log(`[${start}] to [${end}]`)
         let queue = Queue();
         let idCurrent = idFromCoords(start);
         let idEnd = idFromCoords(end);
         let isEndReached = false;
 
         queue.enqueue(idCurrent);
-        // console.log('initial queue')
-        // queue.print();
-
-        let count = 0;
 
         while (!isEndReached) {
-            count++;
-            // console.log(`>>> idCurrent: ${idCurrent}`);
             if (idCurrent == idEnd) {
-                console.log('end found')
                 isEndReached = true;
                 let currentParent = nodes[idEnd].getParent();
-                console.log(`idEnd: ${idEnd}`);
-                console.log(`${idEnd}'s parent: ${nodes[idCurrent].getParent()}`);
                 while (currentParent != null) {
-                    console.log(`${currentParent}'s parent: ${nodes[currentParent].getParent()}`)
                     currentParent = nodes[currentParent].getParent();
                 }
-                // console.log('path back traced');
-                console.log(`count=${count}`)
                 break;
             }
 
             if (nodes[idCurrent].isVisited()) {
-                // console.log('already visited, skipping');
                 idCurrent = queue.dequeue();
-                // console.log('queue')
-                // queue.print();
             }
 
-            // console.log(`marking ${idCurrent} as visited...`)
             nodes[idCurrent].markVisited();
-            // console.log(`node ${idCurrent} visited? ${nodes[idCurrent].isVisited()}`);
 
             adjacency[idCurrent].forEach((move) => {
-                // console.log(`move: ${nodes[move].id}`)
                 if (nodes[move].isVisited()) {
-                    // console.log(`${move} already visited, skipping...`)
                     return;
                 } else {
-                    // console.log(`enqueueing ${move}`);
                     queue.enqueue(move);
                     nodes[move].setParent(idCurrent);
                 }
             });
 
             idCurrent = queue.dequeue();
-            // console.log('queue')
-            // queue.print();
         }
     };
 
