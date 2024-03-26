@@ -121,5 +121,6 @@ const Board = (function() {
 
 })();
 
-// console.log(Board.getNodes());
-Board.knightMoves([0, 0], [1, 1]);
+Board.knightMoves([0, 0], [5, 5]);
+Board.knightMoves([3, 3], [4, 3]);
+Board.knightMoves([5, 1], [2, 6]);
