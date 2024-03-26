@@ -87,7 +87,9 @@ const Board = (function() {
                 }
             });
 
-            idCurrent = queue.dequeue();
+    const cleanUpNodes = () => {
+        for (const [id, node] of Object.entries(nodes)) {
+            node.reset();
         }
     };
 
